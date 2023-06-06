@@ -1,7 +1,9 @@
+import MonsterList from "../../components/monster/MonsterList";
 const Monsters = () => {
     return (
       <>
-        Monsters
+        <h1>Monsters</h1>
+        <MonsterList />
       </>
     )
   };
