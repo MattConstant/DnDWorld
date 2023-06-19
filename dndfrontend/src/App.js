@@ -14,7 +14,6 @@ import AddMonster from './components/monster/AddMonster';
 
 
 function App() {
-
   const [monsters, setMonsters] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -23,7 +22,7 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('');
+      const response = await fetch('http://localhost:8080/monster');
       if (!response.ok) {
         throw new Error('Something went wrong!');
       }
@@ -77,17 +76,26 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="Monsters" element={<Monsters />} />
-          <Route path="Players" element={<Players />} />
-          <Route path="Questions" element={<Questions />} />
+    // <BrowserRouter>
+    //   <Routes>
+    //     <Route path="/" element={<Layout />}>
+    //       <Route index element={<Home />} />
+    //       <Route path="Monsters" element={<Monsters />} />
+    //       <Route path="Players" element={<Players />} />
+    //       <Route path="Questions" element={<Questions />} />
+    //     </Route>
+    //   </Routes>
+    // </BrowserRouter>
 
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <React.Fragment>
+    <section>
+      <AddMonster onAddMovie={addMonsterHandler} />
+    </section>
+    <section>
+      <button onClick={fetchMonstersHandler}>Fetch Monsters</button>
+    </section>
+    <section>{content}</section>
+  </React.Fragment>
   );
 }
 

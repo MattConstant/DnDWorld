@@ -9,7 +9,7 @@ const MonsterList = (props) => {
       {props.monsters.map((monster) => (
         <Monster
           key={monster.id}
-          title={monster.name}
+          name={monster.name}
         />
       ))}
     </ul>
