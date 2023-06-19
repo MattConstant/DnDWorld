@@ -3,6 +3,7 @@ package ca.mattconstant.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,10 +23,16 @@ public class MonsterController {
 	
 	private MonsterRepository monsterRepo;
 	
+	   @CrossOrigin
 	   @GetMapping(value={"/", ""}) 
 	    public List<Monster> findMonsters() {
 	    return monsterRepo.findAll();
-	}
+	   }
+	   
+	   @GetMapping(value={"/test"}) 
+	    public String test() {
+	    return "test";
+	   }
 	   
 	   @GetMapping(value={"/{id}"}, headers="Content-type=application/json")
 		public Optional<Monster> getMonsterById(@PathVariable String id) {
