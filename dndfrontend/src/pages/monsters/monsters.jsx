@@ -1,6 +1,5 @@
 import MonsterList from "../../components/monster/MonsterList.js";
 import AddMonster from "../../components/monster/AddMonster.js";
-import Delete from "../../components/monster/Monster.js"
 import { useState, useEffect, useCallback } from "react";
 
 const Monsters = () => {
@@ -36,8 +35,8 @@ const Monsters = () => {
           cha: data[key].cha,
         });
       }
-
       setMonsters(loadedMonsters);
+
     } catch (error) {
       setError(error.message);
     }
@@ -49,6 +48,7 @@ const Monsters = () => {
   }, [fetchMonstersHandler]);
 
   async function addMonsterHandler(monster) {
+    console.log(monster.id);
     const response = await fetch("http://localhost:8080/monster", {
       method: "POST",
       body: JSON.stringify(monster),
@@ -58,6 +58,13 @@ const Monsters = () => {
     });
     const data = await response.json();
     console.log(data);
+
+    const newMonster = {
+      ...monster,
+      id: String(data.id),
+    };
+   
+    setMonsters((prevMonsters) => [...prevMonsters, newMonster]);
   }
 
   async function deleteMonsterHandler(monsterId) {
@@ -105,7 +112,6 @@ const Monsters = () => {
         <button onClick={fetchMonstersHandler}>Fetch Monsters</button>
       </section>
       <section>
-        {/* Pass onDeleteMonster prop to MonstersList */}
         <MonsterList monsters={monsters} onDeleteMonster={deleteMonsterHandler} />
       </section>
     </>

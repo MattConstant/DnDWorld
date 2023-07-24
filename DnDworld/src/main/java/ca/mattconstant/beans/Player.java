@@ -48,7 +48,9 @@ public class Player {
 	
 	private double dex;
 	
-	private String[] skills;
+	private String skills;
+	
+	private String notes;
 	
 	
 	

@@ -33,7 +33,7 @@ public class MonsterController {
 	    public String test() {
 	    return "test";
 	   }
-	   
+	   @CrossOrigin
 	   @GetMapping(value={"/{id}"}, headers="Content-type=application/json")
 		public Optional<Monster> getMonsterById(@PathVariable String id) {
 			return monsterRepo.findById(id); 
