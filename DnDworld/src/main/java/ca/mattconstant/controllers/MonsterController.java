@@ -39,6 +39,7 @@ public class MonsterController {
 			return monsterRepo.findById(id); 
 		}
 	   
+	    @CrossOrigin
 		@PostMapping(value={"/", ""}, headers="Content-type=application/json")
 		public String postMonster(@RequestBody Monster monster) {
 		    monster.setId(null);
@@ -46,7 +47,7 @@ public class MonsterController {
 		    System.out.println("test");
 		    return "Record was added at index" + m.getId();
 		}
-		
+	    @CrossOrigin
 		@DeleteMapping(value={"/{id}"}, headers="Content-type=application/json")
 		public String deleteById(@PathVariable String id) {
 					monsterRepo.deleteById(id);

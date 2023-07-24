@@ -10,7 +10,12 @@ import {
 import "@coreui/coreui/dist/css/coreui.min.css";
 import classes from "./Monster.module.css";
 
-const Monster = (props) => {
+  const Monster = (props) => {
+    const handleDelete = () => {
+      props.onDelete(props.monster.id); // Access the id from the monster prop
+    };
+
+
   return (
     <CCard
       style={{
@@ -22,25 +27,29 @@ const Monster = (props) => {
       }}
     >
       <CCardBody>
-        <CCardTitle>{props.name}</CCardTitle>
+        <CCardTitle>{props.monster.name}</CCardTitle>
         <CCardText>
-          ac: {props.ac}
+          ac: {props.monster.ac}
           <br />
-          health: {props.hp}
+          health: {props.monster.hp}
           <br />
-          cr: {props.cr}
+          cr: {props.monster.cr}
           <br />
-          strength: {props.str}
+          strength: {props.monster.str}
           <br />
-          dexterity: {props.dex}
+          dexterity: {props.monster.dex}
           <br />
-          consitution:{props.con}
+          consitution:{props.monster.con}
           <br />
-          wisdom: {props.wis}
+          wisdom: {props.monster.wis}
           <br />
-          charisma: {props.cha}
+          charisma: {props.monster.cha}
         </CCardText>
-        <CButton href={props.url}>View details</CButton>
+        <CButton href={props.monster.url}>View details</CButton>
+        <br/>
+        <CButton color="danger" onClick={handleDelete}>
+          Delete
+        </CButton>
       </CCardBody>
     </CCard>
   );
