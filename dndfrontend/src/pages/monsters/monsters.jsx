@@ -68,7 +68,6 @@ const Monsters = () => {
   }
 
   async function deleteMonsterHandler(monsterId) {
-    // Make a DELETE request to the server to delete the monster with the given id
     try {
       const response = await fetch(`http://localhost:8080/monster/${monsterId}`, {
         method: "DELETE",
@@ -77,8 +76,7 @@ const Monsters = () => {
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
-
-      // Update the state to remove the deleted monster
+      
       setMonsters((prevMonsters) =>
         prevMonsters.filter((monster) => monster.id !== monsterId)
       );
