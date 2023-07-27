@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -8,13 +7,12 @@ import Questions from './pages/questions/questions';
 import Layout from './pages/layout/layout';
 import Home from './pages/home/home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useState, useEffect, useCallback } from 'react';
-import MonstersList from './components/monster/MonsterList';
-import AddMonster from './components/monster/AddMonster';
+import Login from './components/authentication/Login';
+import Register from './components/authentication/Register';
 
 
 function App() {
-
+  const isAuthenticated = !!localStorage.getItem('token');
 
   return (
 
@@ -25,6 +23,9 @@ function App() {
           <Route path="Monsters" element={<Monsters />} />
           <Route path="Players" element={<Players />} />
           <Route path="Questions" element={<Questions />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+
         </Route>
       </Routes>
     </BrowserRouter>

@@ -37,11 +37,11 @@ function AddPlayer(props) {
         armorClass: armorClassRef.current.value,
         initiative: initiativeRef.current.value,
         perception: perceptionRef.current.value,
-        cl: clRef.current.value,
-        raceRef: raceRef.current.value,
-        backgroundRef: backgroundRef.current.value,
-        alignRef: alignRef.current.value,
-        speedRef: speedRef.current.value,
+        cl: clRef.current.value.toString(),
+        raceRef: raceRef.current.value.toString(),
+        backgroundRef: backgroundRef.current.value.toString(),
+        alignRef: alignRef.current.value.toString(),
+        speedRef: speedRef.current.value.toString(),
         profRef: profRef.current.value,
         strRef: strRef.current.value,
         conRef: conRef.current.value,
@@ -49,8 +49,8 @@ function AddPlayer(props) {
         wisRef: wisRef.current.value,
         chaRef: chaRef.current.value,
         dexRef: dexRef.current.value,
-        skillsRef: skillsRef.current.value,
-        notesRef: notesRef.current.value,
+        skillsRef: skillsRef.current.value.toString(),
+        notesRef: notesRef.current.value.toString(),
 
     };
 

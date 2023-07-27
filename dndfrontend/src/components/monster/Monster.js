@@ -47,9 +47,6 @@ import classes from "./Monster.module.css";
         </CCardText>
         <CButton href={props.monster.url}>View details</CButton>
         <br/>
-        <CButton color="danger" onClick={handleDelete}>
-          Delete
-        </CButton>
       </CCardBody>
     </CCard>
   );

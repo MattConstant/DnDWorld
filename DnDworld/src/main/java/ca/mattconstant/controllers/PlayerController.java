@@ -22,6 +22,7 @@ import lombok.AllArgsConstructor;
 public class PlayerController {
 	
 	private PlayerRepository playerRepo;
+	
 	   @CrossOrigin
 	   @GetMapping(value={"/", ""}) 
 	    public List<Player> findPlayers() {
