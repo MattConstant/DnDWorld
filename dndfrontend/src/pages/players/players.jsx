@@ -25,6 +25,7 @@ const Players = () => {
         loadedPlayers.push({
           id: key,
           name: data[key].name,
+          dungeonMaster: data[key].dungeonMaster,
           armorClass: data[key].armorClass,
           initiative: data[key].initiative,
           perception: data[key].perception,

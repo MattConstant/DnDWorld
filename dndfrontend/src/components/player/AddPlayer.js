@@ -23,17 +23,14 @@ function AddPlayer(props) {
   const skillsRef = useRef('');
   const notesRef = useRef('');
 
-
-
-
   function submitHandler(event) {
     event.preventDefault();
 
-    // could add validation here...
 
     const player = {
         id: Math.random().toString(),
         name: nameRef.current.value.toString(),
+        dungeonMaster: props.username,
         armorClass: armorClassRef.current.value,
         initiative: initiativeRef.current.value,
         perception: perceptionRef.current.value,
@@ -53,7 +50,6 @@ function AddPlayer(props) {
         notesRef: notesRef.current.value.toString(),
 
     };
-
     props.onAddPlayer(player);
   }
 
@@ -63,6 +59,7 @@ function AddPlayer(props) {
         <label htmlFor='title'>Name</label>
         <input type='hidden' id='id' ref={idRef} />
         <input type='text' id='name' ref={nameRef} />
+        <input type='text' id='dm' value={props.username} hidden />
         <input type='number' id='armorClass' ref={armorClassRef} />
         <input type='number' id='initiative' ref={initiativeRef} />
         <input type='number' id='perception' ref={perceptionRef} />

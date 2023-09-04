@@ -2,7 +2,6 @@ import React from "react";
 import {
   CCard,
   CCardBody,
-  CCardImage,
   CCardTitle,
   CCardText,
   CButton,
@@ -29,6 +28,8 @@ import "@coreui/coreui/dist/css/coreui.min.css";
       <CCardBody>
         <CCardTitle>{props.player.name}</CCardTitle>
         <CCardText>
+          DM: {props.player.dungeonMaster}
+          <br />
           ac: {props.player.ac}
           <br />
           health: {props.player.hp}
@@ -44,6 +45,7 @@ import "@coreui/coreui/dist/css/coreui.min.css";
           wisdom: {props.player.wis}
           <br />
           charisma: {props.player.cha}
+
         </CCardText>
         <CButton href={props.player.url}>View details</CButton>
         <br/>
